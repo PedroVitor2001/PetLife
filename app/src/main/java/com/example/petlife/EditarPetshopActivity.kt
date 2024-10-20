@@ -15,7 +15,7 @@ class EditarPetshopActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Recuperar os dados enviados pela MainActivity
-        val petshop = intent.getStringExtra("petshop")
+        val petshop = intent.getStringExtra("ultimaIdaPetshop")
 
         // Preencher o campo com o dado existente
         binding.inputPetshop.setText(petshop)
@@ -23,9 +23,10 @@ class EditarPetshopActivity : AppCompatActivity() {
         // Botão para salvar os dados
         binding.btnSalvarPetshop.setOnClickListener {
             val resultIntent = Intent()
-            resultIntent.putExtra("petshop", binding.inputPetshop.text.toString())
+            resultIntent.putExtra("ultimaIdaPetshop", binding.inputPetshop.text.toString())
             setResult(RESULT_OK, resultIntent)
             finish()
         }
     }
 }
+

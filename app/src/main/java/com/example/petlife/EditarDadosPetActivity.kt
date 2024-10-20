@@ -15,11 +15,11 @@ class EditarDadosPetActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Recuperar os dados enviados pela MainActivity
-        val nome = intent.getStringExtra("nome")
-        val dataNascimento = intent.getStringExtra("dataNascimento")
-        val tipo = intent.getStringExtra("tipo")
-        val cor = intent.getStringExtra("cor")
-        val porte = intent.getStringExtra("porte")
+        val nome = intent.getStringExtra("nome") ?: ""
+        val dataNascimento = intent.getStringExtra("dataNascimento") ?: ""
+        val tipo = intent.getStringExtra("tipo") ?: ""
+        val cor = intent.getStringExtra("cor") ?: ""
+        val porte = intent.getStringExtra("porte") ?: ""
 
         // Preencher os campos com os dados existentes
         binding.inputNome.setText(nome)
@@ -30,12 +30,15 @@ class EditarDadosPetActivity : AppCompatActivity() {
 
         // Botão para salvar os dados
         binding.btnSalvar.setOnClickListener {
-            val resultIntent = Intent()
-            resultIntent.putExtra("nome", binding.inputNome.text.toString())
-            resultIntent.putExtra("dataNascimento", binding.inputDataNascimento.text.toString())
-            resultIntent.putExtra("tipo", binding.inputTipo.text.toString())
-            resultIntent.putExtra("cor", binding.inputCor.text.toString())
-            resultIntent.putExtra("porte", binding.inputPorte.text.toString())
+            // Cria um Intent para retornar os dados alterados
+            val resultIntent = Intent().apply {
+                putExtra("nome", binding.inputNome.text.toString())
+                putExtra("dataNascimento", binding.inputDataNascimento.text.toString())
+                putExtra("tipo", binding.inputTipo.text.toString())
+                putExtra("cor", binding.inputCor.text.toString())
+                putExtra("porte", binding.inputPorte.text.toString())
+            }
+            // Define o resultado e finaliza a atividade
             setResult(RESULT_OK, resultIntent)
             finish()
         }

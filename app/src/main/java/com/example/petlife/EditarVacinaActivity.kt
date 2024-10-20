@@ -15,7 +15,7 @@ class EditarVacinaActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Recuperar os dados enviados pela MainActivity
-        val vacina = intent.getStringExtra("vacina")
+        val vacina = intent.getStringExtra("ultimaVacina")
 
         // Preencher o campo com o dado existente
         binding.inputVacina.setText(vacina)
@@ -23,9 +23,10 @@ class EditarVacinaActivity : AppCompatActivity() {
         // Botão para salvar os dados
         binding.btnSalvarVacina.setOnClickListener {
             val resultIntent = Intent()
-            resultIntent.putExtra("vacina", binding.inputVacina.text.toString())
+            resultIntent.putExtra("ultimaVacina", binding.inputVacina.text.toString())
             setResult(RESULT_OK, resultIntent)
             finish()
         }
     }
 }
+

@@ -15,7 +15,7 @@ class EditarVeterinarioActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Recuperar os dados enviados pela MainActivity
-        val ultimaIda = intent.getStringExtra("ultimaIda")
+        val ultimaIda = intent.getStringExtra("ultimaIdaVeterinario")
 
         // Preencher o campo com o dado existente
         binding.inputVeterinario.setText(ultimaIda)
@@ -23,9 +23,10 @@ class EditarVeterinarioActivity : AppCompatActivity() {
         // Botão para salvar os dados
         binding.btnSalvarVeterinario.setOnClickListener {
             val resultIntent = Intent()
-            resultIntent.putExtra("ultimaIda", binding.inputVeterinario.text.toString())
+            resultIntent.putExtra("ultimaIdaVeterinario", binding.inputVeterinario.text.toString())
             setResult(RESULT_OK, resultIntent)
             finish()
         }
     }
 }
+
