@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PetLife</string>
+    <string name="btn_editar_dados">Editar Dados</string>
+    <string name="btn_editar_veterinario">Editar Veterinário</string>
+    <string name="btn_editar_vacina">Editar Vacina</string>
+    <string name="btn_editar_petshop">Editar Petshop</string>
 </resources>
