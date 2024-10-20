@@ -1,19 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
+        android:id="@+id/nomePet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Nome do Pet:" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/dataNascimentoPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data de Nascimento:" />
+
+    <TextView
+        android:id="@+id/tipoPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo:" />
+
+    <TextView
+        android:id="@+id/corPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cor:" />
+
+    <TextView
+        android:id="@+id/portePet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Porte:" />
+
+    <TextView
+        android:id="@+id/ultimaIdaVeterinario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Última ida ao veterinário:" />
+
+    <TextView
+        android:id="@+id/ultimaVacina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Última vacina:" />
+
+    <TextView
+        android:id="@+id/ultimaIdaPetshop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Última ida ao petshop:" />
+
+    <Button
+        android:id="@+id/btnEditarDados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Dados" />
+
+    <Button
+        android:id="@+id/btnEditarVeterinario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Veterinário" />
+
+    <Button
+        android:id="@+id/btnEditarVacina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Vacina" />
+
+    <Button
+        android:id="@+id/btnEditarPetshop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Petshop" />
+</LinearLayout>
