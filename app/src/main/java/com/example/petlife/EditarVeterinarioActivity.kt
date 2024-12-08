@@ -1,5 +1,6 @@
 package com.example.petlife
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -14,19 +15,24 @@ class EditarVeterinarioActivity : AppCompatActivity() {
         binding = ActivityEditarVeterinarioBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Recuperar os dados enviados pela MainActivity
-        val ultimaIda = intent.getStringExtra("ultimaIdaVeterinario")
+        // Preencher os campos com valores atuais, se disponíveis
+        val ultimaIdaVeterinario = intent.getStringExtra("ultimaIdaVeterinario") ?: ""
+        val telefoneConsultorio = intent.getStringExtra("telefoneConsultorio") ?: ""
+        val siteConsultas = intent.getStringExtra("siteConsultas") ?: ""
 
-        // Preencher o campo com o dado existente
-        binding.inputVeterinario.setText(ultimaIda)
+        binding.inputUltimaIdaVeterinario.setText(ultimaIdaVeterinario)
+        binding.inputTelefoneConsultorio.setText(telefoneConsultorio)
+        binding.inputSiteConsultas.setText(siteConsultas)
 
-        // Botão para salvar os dados
-        binding.btnSalvarVeterinario.setOnClickListener {
-            val resultIntent = Intent()
-            resultIntent.putExtra("ultimaIdaVeterinario", binding.inputVeterinario.text.toString())
-            setResult(RESULT_OK, resultIntent)
+        // Botão de salvar
+        binding.btnSalvar.setOnClickListener {
+            val resultIntent = Intent().apply {
+                putExtra("ultimaIdaVeterinario", binding.inputUltimaIdaVeterinario.text.toString())
+                putExtra("telefoneConsultorio", binding.inputTelefoneConsultorio.text.toString())
+                putExtra("siteConsultas", binding.inputSiteConsultas.text.toString())
+            }
+            setResult(Activity.RESULT_OK, resultIntent)
             finish()
         }
     }
 }
-

@@ -1,12 +1,12 @@
-package com.example.petlife.models
-
 data class Pet(
-    var nome: String,
-    var dataNascimento: String,
-    var tipo: String,
-    var cor: String,
-    var porte: String,
+    val nome: String,
+    val dataNascimento: String,
+    val tipo: String,
+    val cor: String,
+    val porte: String,
     var ultimaIdaVeterinario: String,
     var ultimaVacina: String,
-    var ultimaIdaPetshop: String
+    var ultimaIdaPetshop: String,
+    var telefoneConsultorio: String,
+    var siteConsultas: String
 )

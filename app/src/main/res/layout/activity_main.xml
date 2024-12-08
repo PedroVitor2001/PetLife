@@ -53,6 +53,32 @@
         android:layout_height="wrap_content"
         android:text="Última ida ao petshop:" />
 
+    <TextView
+        android:id="@+id/telefoneConsultorio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefone do Consultório:" />
+
+    <TextView
+        android:id="@+id/siteConsultas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Site para Consultas:" />
+
+    <Button
+        android:id="@+id/btnDiscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Discar para Consultório" />
+
+    <Button
+        android:id="@+id/btnAbrirSite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Abrir Site de Consultas" />
+
+
+
     <Button
         android:id="@+id/btnEditarDados"
         android:layout_width="wrap_content"
