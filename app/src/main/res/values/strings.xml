@@ -4,4 +4,14 @@
     <string name="btn_editar_veterinario">Editar Veterinário</string>
     <string name="btn_editar_vacina">Editar Vacina</string>
     <string name="btn_editar_petshop">Editar Petshop</string>
+    <string name="add_pet">Add Pet</string>
+    <string name="pet_name">Nome</string>
+    <string name="species">Espécie</string>
+    <string name="breed">Raça</string>
+    <string name="age">Idade</string>
+    <string name="save">save</string>
+    <string name="pet_list">Pet List</string>
+    <string name="weight">Peso</string>
+    <string name="last_vet_visit">Data da Última Visita ao Veterinário</string>
+
 </resources>

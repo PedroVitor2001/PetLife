@@ -1,105 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    tools:context=".ui.MainActivity">
 
-    <TextView
-        android:id="@+id/nomePet"
-        android:layout_width="wrap_content"
+    <!-- Toolbar -->
+    <include
+        android:id="@+id/toolbarIn"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nome do Pet:" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/dataNascimentoPet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Data de Nascimento:" />
+    <!-- ListView for displaying pets -->
+    <ListView
+        android:id="@+id/petsLv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarIn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <TextView
-        android:id="@+id/tipoPet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tipo:" />
-
-    <TextView
-        android:id="@+id/corPet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cor:" />
-
-    <TextView
-        android:id="@+id/portePet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Porte:" />
-
-    <TextView
-        android:id="@+id/ultimaIdaVeterinario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Última ida ao veterinário:" />
-
-    <TextView
-        android:id="@+id/ultimaVacina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Última vacina:" />
-
-    <TextView
-        android:id="@+id/ultimaIdaPetshop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Última ida ao petshop:" />
-
-    <TextView
-        android:id="@+id/telefoneConsultorio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Telefone do Consultório:" />
-
-    <TextView
-        android:id="@+id/siteConsultas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Site para Consultas:" />
-
-    <Button
-        android:id="@+id/btnDiscar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Discar para Consultório" />
-
-    <Button
-        android:id="@+id/btnAbrirSite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Abrir Site de Consultas" />
-
-
-
-    <Button
-        android:id="@+id/btnEditarDados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Editar Dados" />
-
-    <Button
-        android:id="@+id/btnEditarVeterinario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Editar Veterinário" />
-
-    <Button
-        android:id="@+id/btnEditarVacina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Editar Vacina" />
-
-    <Button
-        android:id="@+id/btnEditarPetshop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Editar Petshop" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
