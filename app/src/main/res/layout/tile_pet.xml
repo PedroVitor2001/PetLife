@@ -3,9 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">  <!-- Use dp for padding -->
+    android:padding="10dp">
 
-    <!-- Pet Name TextView -->
     <TextView
         android:id="@+id/petNameTv"
         android:layout_width="match_parent"
@@ -13,13 +12,11 @@
         android:text="Pet Name"
         android:textSize="25sp" />
 
-    <!-- Horizontal LinearLayout for breed and age/last visit -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!-- Breed TextView -->
         <TextView
             android:id="@+id/breedTv"
             android:layout_width="0dp"
@@ -27,7 +24,6 @@
             android:layout_weight="1"
             android:text="Breed" />
 
-        <!-- Age or Last Visit TextView -->
         <TextView
             android:id="@+id/ageOrLastVisitTv"
             android:layout_width="0dp"

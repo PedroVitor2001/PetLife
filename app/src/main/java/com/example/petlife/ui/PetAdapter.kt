@@ -25,13 +25,10 @@ class PetAdapter(
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         lateinit var tpb: TilePetBinding
 
-        // Pegar o pet que vai ser usado para preencher a célula
         val pet = petList[position]
 
-        // Verificando se a célula já foi inflada ou não.
         var petTile = convertView
         if (petTile == null) {
-            // Se não foi, infla uma nova célula
             tpb = TilePetBinding.inflate(
                 context.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater,
                 parent,
@@ -39,14 +36,11 @@ class PetAdapter(
             )
             petTile = tpb.root
 
-            // Criar um holder para a nova célula
             val newPetTileHolder = PetTileHolder(tpb.petNameTv, tpb.breedTv, tpb.ageOrLastVisitTv)
 
-            // Associar holder à nova célula
             petTile.tag = newPetTileHolder
         }
 
-        // Preenche os valores da célula com o novo pet
         val holder = petTile.tag as PetTileHolder
         holder.let {
             it.petNameTv.text = pet.name
@@ -54,7 +48,6 @@ class PetAdapter(
             it.ageOrLastVisitTv.text = pet.birthDate
         }
 
-        // Retorna a célula preenchida
         return petTile
     }
 }

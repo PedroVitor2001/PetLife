@@ -18,6 +18,14 @@
             android:exported="false" />
 
         <activity
+            android:name=".ui.EventListActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.EventRegisterActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>

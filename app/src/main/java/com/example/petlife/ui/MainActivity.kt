@@ -24,15 +24,12 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    // Data source
     private val petList: MutableList<Pet> = mutableListOf()
 
-    // Adapter
     private val petAdapter: PetAdapter by lazy {
         PetAdapter(this, petList)
     }
 
-    // Controller
     private val mainController: MainController by lazy {
         MainController(this)
     }
@@ -73,9 +70,9 @@ class MainActivity : AppCompatActivity() {
 
         amb.petsLv.adapter = petAdapter
         amb.petsLv.setOnItemClickListener { _, _, position, _ ->
-            Intent(this, PetActivity::class.java).apply {
-                putExtra(PET, petList[position])
-                putExtra(VIEW_MODE, true)
+            val petId = petList[position].id
+            Intent(this, EventListActivity::class.java).apply {
+                putExtra("PET_ID", petId)
                 startActivity(this)
             }
         }
@@ -90,7 +87,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when(item.itemId) {
         R.id.addPetMi -> {
-            // Abrir tela para adicionar novo pet
             barl.launch(Intent(this, PetActivity::class.java))
             true
         }

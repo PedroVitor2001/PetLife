@@ -1,6 +1,6 @@
 package com.example.petlife.models
 
-interface PetDao {
+interface PetDAO {
     fun createPet(pet: Pet): Long
     fun retrievePet(id: Long): Pet
     fun retrievePets(): MutableList<Pet>

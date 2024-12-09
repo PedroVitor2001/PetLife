@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.util.Log
 import com.example.petlife.R
 
-class PetSqliteImpl(context: Context) : PetDao {
+class PetSqliteImpl(context: Context) : PetDAO {
 
     companion object {
         private const val PET_DATABASE_FILE = "petlife"
@@ -39,18 +39,15 @@ class PetSqliteImpl(context: Context) : PetDao {
 
     init {
         try {
-            //petDatabase.execSQL("DROP TABLE IF EXISTS $PET_TABLE")
             petDatabase.execSQL(CREATE_PET_TABLE_STATEMENT)
         } catch (se: SQLException) {
             Log.e(context.getString(R.string.app_name), se.toString())
         }
     }
 
-    // Método para criar um novo pet
     override fun createPet(pet: Pet) =
         petDatabase.insert(PET_TABLE, null, petToContentValues(pet))
 
-    // Método para recuperar um pet pelo ID
     override fun retrievePet(id: Long): Pet {
         val cursor = petDatabase.query(
             true,
@@ -67,11 +64,10 @@ class PetSqliteImpl(context: Context) : PetDao {
         return if (cursor.moveToFirst()) {
             cursorToPet(cursor)
         } else {
-            Pet()  // Retorna um Pet com valores padrões caso não seja encontrado
+            Pet()
         }
     }
 
-    // Método para recuperar todos os pets
     override fun retrievePets(): MutableList<Pet> {
         val petList = mutableListOf<Pet>()
 
@@ -83,7 +79,6 @@ class PetSqliteImpl(context: Context) : PetDao {
         return petList
     }
 
-    // Método para atualizar os dados de um pet
     override fun updatePet(pet: Pet) = petDatabase.update(
         PET_TABLE,
         petToContentValues(pet),
@@ -91,14 +86,12 @@ class PetSqliteImpl(context: Context) : PetDao {
         arrayOf(pet.id.toString())
     )
 
-    // Método para excluir um pet
     override fun deletePet(id: Long) = petDatabase.delete(
         PET_TABLE,
         "$ID_COLUMN = ?",
         arrayOf(id.toString())
     )
 
-    // Função para converter os dados de Pet para ContentValues
     private fun petToContentValues(pet: Pet) = ContentValues().apply {
         with(pet) {
             put(NAME_COLUMN, name)
@@ -109,7 +102,6 @@ class PetSqliteImpl(context: Context) : PetDao {
         }
     }
 
-    // Função para converter os dados do cursor para um objeto Pet
     private fun cursorToPet(cursor: Cursor): Pet = with(cursor) {
         Pet(
             id = getLong(getColumnIndexOrThrow(ID_COLUMN)),
