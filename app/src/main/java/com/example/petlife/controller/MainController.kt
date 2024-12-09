@@ -9,8 +9,8 @@ class MainController(mainActivity: MainActivity) {
     private val petDao: PetDao = PetSqliteImpl(mainActivity)
 
     fun insertPet(pet: Pet) = petDao.createPet(pet)
-    fun getPet(name: String) = petDao.retrievePet(name)
+    fun getPet(id: Long) = petDao.retrievePet(id)
     fun getPets() = petDao.retrievePets()
     fun modifyPet(pet: Pet) = petDao.updatePet(pet)
-    fun removePet(name: String) = petDao.deletePet(name)
+    fun removePet(id: Long) = petDao.deletePet(id)
 }

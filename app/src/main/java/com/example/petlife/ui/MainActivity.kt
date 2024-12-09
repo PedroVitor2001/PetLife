@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         amb.toolbarIn.toolbar.let {
-            it.subtitle = getString(R.string.pet_list) // Ensure this string is defined in strings.xml
+            it.subtitle = getString(R.string.pet_list)
             setSupportActionBar(it)
         }
 
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         amb.petsLv.adapter = petAdapter
         amb.petsLv.setOnItemClickListener { _, _, position, _ ->
             Intent(this, PetActivity::class.java).apply {
-                putExtra(PET, petList[position]) // Make sure you're passing the correct type
+                putExtra(PET, petList[position])
                 putExtra(VIEW_MODE, true)
                 startActivity(this)
             }
@@ -109,17 +109,15 @@ class MainActivity : AppCompatActivity() {
         val position = (item.menuInfo as AdapterContextMenuInfo).position
         return when (item.itemId) {
             R.id.editPetMi -> {
-                // Chamar tela de edição de pet
                 Intent(this, PetActivity::class.java).apply {
-                    putExtra(Constant.PET, petList[position])  // Passando Pet corretamente
-                    putExtra(Constant.VIEW_MODE, false)  // A constante VIEW_MODE é do tipo String
+                    putExtra(PET, petList[position])
+                    putExtra(VIEW_MODE, false)
                     barl.launch(this)
                 }
                 true
             }
             R.id.removePetMi -> {
-                // Remover pet da lista
-                mainController.removePet(petList[position].id.toString())
+                mainController.removePet(petList[position].id)
                 petList.removeAt(position)
                 petAdapter.notifyDataSetChanged()
                 true
@@ -130,11 +128,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        fillPetList()
+    }
+
     private fun fillPetList() {
         Thread {
+            val petsFromDb = mainController.getPets()
             runOnUiThread {
                 petList.clear()
-                petList.addAll(mainController.getPets())
+                petList.addAll(petsFromDb)
                 petAdapter.notifyDataSetChanged()
             }
         }.start()

@@ -5,13 +5,13 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Pet(
-    val id: Int = 0,  // Valor padrão
-    val name: String = "",  // Valor padrão
-    val species: String = "",  // Valor padrão
-    val breed: String = "",  // Valor padrão
-    val age: Int = 0,  // Valor padrão
-    val weight: Double = 0.0,  // Valor padrão
-    val lastVetVisit: String = ""  // Valor padrão
+    val id: Long = 0,
+    val name: String = "",
+    val species: String = "",
+    val breed: String = "",
+    val age: Int = 0,
+    val weight: Double = 0.0,
+    val lastVetVisit: String = ""
 )
 
     : Parcelable
