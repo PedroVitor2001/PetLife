@@ -1,6 +1,5 @@
 package com.example.petlife.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -34,19 +33,17 @@ class PetActivity : AppCompatActivity() {
             with(abb) {
                 with(pet) {
                     petNameEt.setText(name)
-                    speciesEt.setText(species)
-                    breedEt.setText(breed)
-                    ageEt.setText(age.toString())
-                    weightEt.setText(weight.toString())
-                    lastVetVisitEt.setText(lastVetVisit)
+                    typeEt.setText(type)
+                    colorEt.setText(color)
+                    birthDateEt.setText(birthDate)
+                    sizeEt.setText(size)
 
                     // Desabilitar edição se estiver no modo visualização
                     petNameEt.isEnabled = !viewMode
-                    speciesEt.isEnabled = !viewMode
-                    breedEt.isEnabled = !viewMode
-                    ageEt.isEnabled = !viewMode
-                    weightEt.isEnabled = !viewMode
-                    lastVetVisitEt.isEnabled = !viewMode
+                    typeEt.isEnabled = !viewMode
+                    colorEt.isEnabled = !viewMode
+                    birthDateEt.isEnabled = !viewMode
+                    sizeEt.isEnabled = !viewMode
 
                     // Ocultar botão de salvar no modo visualização
                     saveBt.visibility = if (viewMode) GONE else VISIBLE
@@ -69,12 +66,11 @@ class PetActivity : AppCompatActivity() {
 // Lógica para salvar ou editar o pet
         abb.saveBt.setOnClickListener {
             val name = abb.petNameEt.text.toString()
-            val species = abb.speciesEt.text.toString()
-            val breed = abb.breedEt.text.toString()
+            val type = abb.typeEt.text.toString()
+            val color = abb.colorEt.text.toString()
 
-            val age = abb.ageEt.text.toString().toIntOrNull() ?: 0
-            val weight = abb.weightEt.text.toString().toDoubleOrNull() ?: 0.0
-            val lastVetVisit = abb.lastVetVisitEt.text.toString()
+            val birthDate = abb.birthDateEt.text.toString()
+            val size = abb.sizeEt.text.toString()
 
             val id = currentPet?.id ?: 0
 
@@ -82,11 +78,10 @@ class PetActivity : AppCompatActivity() {
             val pet = Pet(
                 id,
                 name,
-                species,
-                breed,
-                age,
-                weight,
-                lastVetVisit
+                type,
+                color,
+                birthDate,
+                size
             )
 
             if (currentPet != null) {

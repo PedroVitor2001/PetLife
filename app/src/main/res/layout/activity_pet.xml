@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.PetActivity">
 
-    <!-- Toolbar -->
     <include
         android:id="@+id/toolbarIn"
         layout="@layout/toolbar"
@@ -16,7 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Nome do Pet -->
     <EditText
         android:id="@+id/petNameEt"
         android:layout_width="0dp"
@@ -29,73 +27,54 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbarIn" />
 
-    <!-- Espécie do Pet -->
     <EditText
-        android:id="@+id/speciesEt"
+        android:id="@+id/typeEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:hint="@string/species"
+        android:hint="@string/type"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/petNameEt" />
 
-    <!-- Raça do Pet -->
     <EditText
-        android:id="@+id/breedEt"
+        android:id="@+id/colorEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:hint="@string/breed"
+        android:hint="@string/color"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/speciesEt" />
+        app:layout_constraintTop_toBottomOf="@id/typeEt" />
 
-    <!-- Idade do Pet -->
     <EditText
-        android:id="@+id/ageEt"
+        android:id="@+id/birthDateEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
-        android:hint="@string/age"
+        android:hint="@string/idade"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/breedEt" />
+        app:layout_constraintTop_toBottomOf="@id/colorEt" />
 
-    <!-- Peso do Pet -->
     <EditText
-        android:id="@+id/weightEt"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="@string/weight"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ageEt" />
-
-    <!-- Data da Última Visita ao Veterinário -->
-    <EditText
-        android:id="@+id/lastVetVisitEt"
+        android:id="@+id/sizeEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="date"
-        android:hint="@string/last_vet_visit"
+        android:hint="@string/size"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weightEt" />
+        app:layout_constraintTop_toBottomOf="@id/birthDateEt" />
 
-
-    <!-- Botão de Salvar -->
     <Button
         android:id="@+id/saveBt"
         android:layout_width="0dp"
@@ -104,6 +83,6 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lastVetVisitEt" />
+        app:layout_constraintTop_toBottomOf="@id/sizeEt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

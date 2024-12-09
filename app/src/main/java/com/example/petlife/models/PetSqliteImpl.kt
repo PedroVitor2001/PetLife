@@ -16,21 +16,19 @@ class PetSqliteImpl(context: Context) : PetDao {
         private const val PET_TABLE = "pet"
         private const val ID_COLUMN = "id"
         private const val NAME_COLUMN = "name"
-        private const val SPECIES_COLUMN = "species"
-        private const val BREED_COLUMN = "breed"
-        private const val AGE_COLUMN = "age"
-        private const val WEIGHT_COLUMN = "weight"
-        private const val LAST_VET_VISIT_COLUMN = "last_vet_visit"
+        private const val TYPE_COLUMN = "type"
+        private const val COLOR_COLUMN = "color"
+        private const val BIRTH_DATE_COLUMN = "birthDate"
+        private const val SIZE_COLUMN = "size"
 
         private const val CREATE_PET_TABLE_STATEMENT =
             "CREATE TABLE IF NOT EXISTS $PET_TABLE (" +
                     "$ID_COLUMN INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "$NAME_COLUMN TEXT NOT NULL, " +
-                    "$SPECIES_COLUMN TEXT NOT NULL, " +
-                    "$BREED_COLUMN TEXT NOT NULL, " +
-                    "$AGE_COLUMN INTEGER NOT NULL, " +
-                    "$WEIGHT_COLUMN REAL NOT NULL, " +
-                    "$LAST_VET_VISIT_COLUMN TEXT NOT NULL);"
+                    "$TYPE_COLUMN TEXT NOT NULL, " +
+                    "$COLOR_COLUMN TEXT NOT NULL, " +
+                    "$BIRTH_DATE_COLUMN TEXT NOT NULL, " +
+                    "$SIZE_COLUMN TEXT NOT NULL);"
     }
 
     private val petDatabase: SQLiteDatabase = context.openOrCreateDatabase(
@@ -41,6 +39,7 @@ class PetSqliteImpl(context: Context) : PetDao {
 
     init {
         try {
+            //petDatabase.execSQL("DROP TABLE IF EXISTS $PET_TABLE")
             petDatabase.execSQL(CREATE_PET_TABLE_STATEMENT)
         } catch (se: SQLException) {
             Log.e(context.getString(R.string.app_name), se.toString())
@@ -103,11 +102,10 @@ class PetSqliteImpl(context: Context) : PetDao {
     private fun petToContentValues(pet: Pet) = ContentValues().apply {
         with(pet) {
             put(NAME_COLUMN, name)
-            put(SPECIES_COLUMN, species)
-            put(BREED_COLUMN, breed)
-            put(AGE_COLUMN, age)
-            put(WEIGHT_COLUMN, weight)
-            put(LAST_VET_VISIT_COLUMN, lastVetVisit)
+            put(TYPE_COLUMN, type)
+            put(COLOR_COLUMN, color)
+            put(BIRTH_DATE_COLUMN, birthDate)
+            put(SIZE_COLUMN, size)
         }
     }
 
@@ -116,11 +114,10 @@ class PetSqliteImpl(context: Context) : PetDao {
         Pet(
             id = getLong(getColumnIndexOrThrow(ID_COLUMN)),
             name = getString(getColumnIndexOrThrow(NAME_COLUMN)),
-            species = getString(getColumnIndexOrThrow(SPECIES_COLUMN)),
-            breed = getString(getColumnIndexOrThrow(BREED_COLUMN)),
-            age = getInt(getColumnIndexOrThrow(AGE_COLUMN)),
-            weight = getDouble(getColumnIndexOrThrow(WEIGHT_COLUMN)),
-            lastVetVisit = getString(getColumnIndexOrThrow(LAST_VET_VISIT_COLUMN))
+            type = getString(getColumnIndexOrThrow(TYPE_COLUMN)),
+            color = getString(getColumnIndexOrThrow(COLOR_COLUMN)),
+            birthDate = getString(getColumnIndexOrThrow(BIRTH_DATE_COLUMN)),
+            size = getString(getColumnIndexOrThrow(SIZE_COLUMN))
         )
     }
 }

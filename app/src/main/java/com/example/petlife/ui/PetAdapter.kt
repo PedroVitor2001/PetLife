@@ -50,8 +50,8 @@ class PetAdapter(
         val holder = petTile.tag as PetTileHolder
         holder.let {
             it.petNameTv.text = pet.name
-            it.breedTv.text = pet.breed
-            it.ageOrLastVisitTv.text = pet.age.toString() // Ou a data da última visita, conforme necessário
+            it.breedTv.text = pet.color
+            it.ageOrLastVisitTv.text = pet.birthDate
         }
 
         // Retorna a célula preenchida
