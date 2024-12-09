@@ -6,11 +6,18 @@
     <string name="btn_editar_petshop">Editar Petshop</string>
     <string name="add_pet">Add Pet</string>
     <string name="pet_name">Nome</string>
-    <string name="type">Tipo</string>
+    <string-array name="pet_types">
+        <item>Cachorro</item>
+        <item>Gato</item>
+    </string-array>
     <string name="color">Cor</string>
     <string name="idade">Idade</string>
     <string name="save">save</string>
     <string name="pet_list">Pet List</string>
-    <string name="size">Tamanho</string>
+    <string-array name="size_options">
+        <item>Pequeno</item>
+        <item>Médio</item>
+        <item>Grande</item>
+    </string-array>
 
 </resources>
